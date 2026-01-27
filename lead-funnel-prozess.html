@@ -419,6 +419,50 @@
             color: var(--accent-nurture);
         }
 
+        .pipedrive-stage {
+            background: var(--bg-secondary);
+            border: 2px dashed;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pipedrive-stage.a-lead {
+            border-color: var(--accent-a);
+            color: var(--accent-a);
+            background: rgba(0, 212, 170, 0.08);
+        }
+
+        .pipedrive-stage.b-lead {
+            border-color: var(--accent-b);
+            color: var(--accent-b);
+            background: rgba(255, 123, 84, 0.08);
+        }
+
+        .pipedrive-stage-mini {
+            background: var(--bg-secondary);
+            border: 1px dashed;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .pipedrive-stage-mini.a-lead {
+            border-color: var(--accent-a);
+            color: var(--accent-a);
+        }
+
+        .pipedrive-stage-mini.nurture {
+            border-color: var(--accent-nurture);
+            color: var(--accent-nurture);
+        }
+
         .connector-horizontal {
             width: 100px;
             height: 2px;
@@ -539,24 +583,41 @@
                             <div class="integration">💼 LinkedIn Conversion</div>
                         </div>
                         <div class="integration-row">
-                            <div class="integration a-int">🎯 Pipedrive: Inbound-A</div>
                             <div class="integration">📧 Mailchimp Liste</div>
+                        </div>
+                        <div class="integration-row" style="margin-top: 12px;">
+                            <div class="integration a-int" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
+                                <span>🎯 Pipedrive: Deal anlegen</span>
+                                <small style="opacity: 0.8; font-size: 0.7rem;">inkl. Qualifizierungsfragen-Antworten</small>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="arrow a-lead"></div>
                     
+                    <div class="pipedrive-stage a-lead">
+                        <span>📍 Stage: Inbound-A</span>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
                     <div class="step a-lead">
-                        <div class="step-number">Step 5A</div>
+                        <div class="step-number">Step 4A</div>
                         <div class="step-title">📅 Calendly</div>
                         <div class="step-desc">Direkte Terminbuchung</div>
                     </div>
                     
                     <div class="arrow a-lead"></div>
                     
+                    <div class="pipedrive-stage a-lead">
+                        <span>📍 Stage: Termin gebucht</span>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
                     <div class="step a-lead" style="max-width: 280px;">
-                        <div class="step-title">✅ Termin gebucht</div>
-                        <div class="step-desc">Kalendereinladung versendet<br>Pipedrive Deal-Stage aktualisiert</div>
+                        <div class="step-title">✅ Termin bestätigt</div>
+                        <div class="step-desc">Kalendereinladung versendet<br>Pipedrive Deal-Stage automatisch aktualisiert</div>
                     </div>
                     
                     <div class="arrow a-lead"></div>
@@ -583,9 +644,20 @@
                             <div class="integration">💼 LinkedIn Conversion</div>
                         </div>
                         <div class="integration-row">
-                            <div class="integration b-int">📋 Pipedrive: Inbound-B</div>
                             <div class="integration">📧 Mailchimp Liste</div>
                         </div>
+                        <div class="integration-row" style="margin-top: 12px;">
+                            <div class="integration b-int" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
+                                <span>📋 Pipedrive: Deal anlegen</span>
+                                <small style="opacity: 0.8; font-size: 0.7rem;">inkl. Qualifizierungsfragen-Antworten</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="arrow b-lead"></div>
+                    
+                    <div class="pipedrive-stage b-lead">
+                        <span>📍 Stage: Inbound-B</span>
                     </div>
                     
                     <div class="arrow b-lead"></div>
@@ -600,8 +672,14 @@
                     
                     <div class="step b-lead">
                         <div class="step-number">Step 6B</div>
-                        <div class="step-title">📋 Online-Formular</div>
-                        <div class="step-desc">Erweiterte Informationen<br>→ Daten in Pipedrive verlinkt</div>
+                        <div class="step-title">📋 Online-Formular ausgefüllt</div>
+                        <div class="step-desc">Erweiterte Informationen erfasst<br>→ Formulardaten in Pipedrive gespeichert<br>→ Deal aktualisiert</div>
+                    </div>
+                    
+                    <div class="arrow b-lead"></div>
+                    
+                    <div class="pipedrive-stage b-lead">
+                        <span>📍 Stage: Warten auf Prüfung</span>
                     </div>
                     
                     <div class="arrow b-lead"></div>
@@ -615,15 +693,16 @@
                         <div class="sub-branch">
                             <div class="sub-branch-label accept">✓ Akzeptiert</div>
                             <div class="mini-step a-lead">
-                                📅 Calendly-Link<br>
-                                <small style="color: var(--text-secondary);">→ Gleiche Stage wie A-Leads</small>
+                                📅 Calendly-Link versendet
                             </div>
-                            <div style="height: 8px;"></div>
+                            <div style="height: 6px;"></div>
+                            <div class="pipedrive-stage-mini a-lead">📍 Termin gebucht</div>
+                            <div style="height: 6px;"></div>
                             <div class="mini-step a-lead">
-                                ✅ Termin gebucht<br>
-                                <small style="color: var(--text-secondary);">→ Pipedrive aktualisiert</small>
+                                ✅ Bei Buchung:<br>
+                                <small style="color: var(--text-secondary);">Pipedrive automatisch aktualisiert</small>
                             </div>
-                            <div style="height: 8px;"></div>
+                            <div style="height: 6px;"></div>
                             <div class="end-state a-lead" style="font-size: 0.85rem; padding: 12px 20px;">🎯 Sales-Gespräch</div>
                         </div>
                         
@@ -631,10 +710,12 @@
                             <div class="sub-branch-label reject">✗ Abgelehnt</div>
                             <div class="mini-step nurture">
                                 📧 Absage-E-Mail<br>
-                                <small style="color: var(--text-secondary);">Hinweis auf Technologie-Stand</small>
+                                <small style="color: var(--text-secondary);">Hinweis auf aktuellen<br>Stand der Technologie</small>
                             </div>
-                            <div style="height: 8px;"></div>
-                            <div class="end-state nurture" style="font-size: 0.85rem; padding: 12px 20px;">🌱 Nurture</div>
+                            <div style="height: 6px;"></div>
+                            <div class="pipedrive-stage-mini nurture">📍 Nurture</div>
+                            <div style="height: 6px;"></div>
+                            <div class="end-state nurture" style="font-size: 0.85rem; padding: 12px 20px;">🌱 Nurture-Kampagne</div>
                         </div>
                     </div>
                 </div>
