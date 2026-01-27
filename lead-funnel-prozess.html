@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead-Funnel Prozessdiagramm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f0f12;
+            --bg-secondary: #18181f;
+            --bg-card: #1e1e28;
+            --border-color: #2a2a3a;
+            --text-primary: #f0f0f5;
+            --text-secondary: #9090a0;
+            --accent-a: #00d4aa;
+            --accent-a-glow: rgba(0, 212, 170, 0.3);
+            --accent-b: #ff7b54;
+            --accent-b-glow: rgba(255, 123, 84, 0.3);
+            --accent-shared: #6c5ce7;
+            --accent-shared-glow: rgba(108, 92, 231, 0.3);
+            --accent-decision: #ffd93d;
+            --accent-nurture: #ff6b9d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 212, 170, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 123, 84, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(108, 92, 231, 0.05) 0%, transparent 70%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--accent-a), var(--accent-shared), var(--accent-b));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.a-lead { background: var(--accent-a); box-shadow: 0 0 10px var(--accent-a-glow); }
+        .legend-dot.b-lead { background: var(--accent-b); box-shadow: 0 0 10px var(--accent-b-glow); }
+        .legend-dot.shared { background: var(--accent-shared); box-shadow: 0 0 10px var(--accent-shared-glow); }
+        .legend-dot.nurture { background: var(--accent-nurture); }
+
+        .diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px 32px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 320px;
+        }
+
+        .step:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-shared);
+            box-shadow: 0 8px 32px rgba(108, 92, 231, 0.2);
+        }
+
+        .step.shared {
+            border-color: var(--accent-shared);
+            box-shadow: 0 0 20px var(--accent-shared-glow);
+        }
+
+        .step.a-lead {
+            border-color: var(--accent-a);
+            box-shadow: 0 0 20px var(--accent-a-glow);
+        }
+
+        .step.b-lead {
+            border-color: var(--accent-b);
+            box-shadow: 0 0 20px var(--accent-b-glow);
+        }
+
+        .step.nurture {
+            border-color: var(--accent-nurture);
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--bg-primary);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .step-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .arrow {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--border-color), var(--accent-shared));
+            position: relative;
+        }
+
+        .arrow::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid var(--accent-shared);
+        }
+
+        .arrow.a-lead {
+            background: linear-gradient(to bottom, var(--border-color), var(--accent-a));
+        }
+        .arrow.a-lead::after {
+            border-top-color: var(--accent-a);
+        }
+
+        .arrow.b-lead {
+            background: linear-gradient(to bottom, var(--border-color), var(--accent-b));
+        }
+        .arrow.b-lead::after {
+            border-top-color: var(--accent-b);
+        }
+
+        .decision {
+            background: linear-gradient(135deg, #2a2a3a, #1e1e28);
+            border: 2px solid var(--accent-decision);
+            padding: 24px 40px;
+            transform: rotate(0deg);
+            position: relative;
+            border-radius: 12px;
+            max-width: 400px;
+        }
+
+        .decision::before {
+            content: '⚡';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            background: var(--bg-primary);
+            padding: 0 8px;
+        }
+
+        .decision-title {
+            font-weight: 700;
+            color: var(--accent-decision);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .decision-logic {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            background: rgba(255, 217, 61, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .branch-container {
+            display: flex;
+            justify-content: center;
+            gap: 120px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .branch-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: calc(50% - 60px);
+            width: 120px;
+            height: 2px;
+            background: var(--border-color);
+        }
+
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            position: relative;
+        }
+
+        .branch::before {
+            content: '';
+            width: 2px;
+            height: 20px;
+            background: var(--border-color);
+        }
+
+        .branch-label {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .branch-label.yes {
+            background: rgba(0, 212, 170, 0.2);
+            color: var(--accent-a);
+            border: 1px solid var(--accent-a);
+        }
+
+        .branch-label.no {
+            background: rgba(255, 123, 84, 0.2);
+            color: var(--accent-b);
+            border: 1px solid var(--accent-b);
+        }
+
+        .integration-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 8px 0;
+        }
+
+        .integration {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(108, 92, 231, 0.15);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-shared);
+            border: 1px solid rgba(108, 92, 231, 0.3);
+        }
+
+        .integration.a-int {
+            background: rgba(0, 212, 170, 0.15);
+            color: var(--accent-a);
+            border-color: rgba(0, 212, 170, 0.3);
+        }
+
+        .integration.b-int {
+            background: rgba(255, 123, 84, 0.15);
+            color: var(--accent-b);
+            border-color: rgba(255, 123, 84, 0.3);
+        }
+
+        .sub-decision {
+            background: var(--bg-secondary);
+            border: 1px dashed var(--accent-decision);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            max-width: 280px;
+        }
+
+        .sub-decision-title {
+            font-size: 0.75rem;
+            color: var(--accent-decision);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .sub-branch-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .sub-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sub-branch-label {
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .sub-branch-label.accept {
+            background: rgba(0, 212, 170, 0.2);
+            color: var(--accent-a);
+        }
+
+        .sub-branch-label.reject {
+            background: rgba(255, 107, 157, 0.2);
+            color: var(--accent-nurture);
+        }
+
+        .mini-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 0.8rem;
+            max-width: 160px;
+            text-align: center;
+        }
+
+        .mini-step.a-lead {
+            border-color: var(--accent-a);
+        }
+
+        .mini-step.nurture {
+            border-color: var(--accent-nurture);
+        }
+
+        .shared-actions {
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-shared);
+            border-radius: 12px;
+            padding: 20px 32px;
+            margin: 20px 0;
+            max-width: 500px;
+        }
+
+        .shared-actions-title {
+            font-size: 0.8rem;
+            color: var(--accent-shared);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .end-state {
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+            border: 2px solid;
+            border-radius: 50px;
+            padding: 16px 32px;
+            font-weight: 600;
+        }
+
+        .end-state.a-lead {
+            border-color: var(--accent-a);
+            color: var(--accent-a);
+        }
+
+        .end-state.nurture {
+            border-color: var(--accent-nurture);
+            color: var(--accent-nurture);
+        }
+
+        .connector-horizontal {
+            width: 100px;
+            height: 2px;
+            background: var(--border-color);
+        }
+
+        .section-divider {
+            width: 100%;
+            max-width: 800px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 40px 0;
+        }
+
+        .phase-label {
+            background: var(--bg-primary);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .branch-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .branch-container::before {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .legend {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lead-Funnel Prozessdiagramm</h1>
+            <p class="subtitle">Qualifizierung & Bearbeitung von Inbound-Leads</p>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-dot a-lead"></div>
+                    <span>A-Lead (qualifiziert)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot b-lead"></div>
+                    <span>B-Lead (weitere Prüfung)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot shared"></div>
+                    <span>Gemeinsame Aktionen</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot nurture"></div>
+                    <span>Nurture</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="diagram">
+            <!-- Phase 1: Qualifizierung -->
+            <div class="phase-label">Phase 1: Qualifizierung</div>
+            
+            <div class="step shared">
+                <div class="step-number">Step 1</div>
+                <div class="step-title">📝 Datenformular</div>
+                <div class="step-desc">Name, E-Mail, Unternehmen</div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <div class="step shared">
+                <div class="step-number">Step 2</div>
+                <div class="step-title">👥 Anzahl Mitarbeiter</div>
+                <div class="step-desc">Unternehmensgröße erfassen</div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <div class="step shared">
+                <div class="step-number">Step 3</div>
+                <div class="step-title">🏭 Industrie</div>
+                <div class="step-desc">Branche auswählen</div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <div class="decision">
+                <div class="decision-title">Logik-Prüfung</div>
+                <div class="decision-logic">
+                    (MA &gt; 500) ODER<br>
+                    (MA &gt; 50 &amp; Logistik/Produktion)
+                </div>
+            </div>
+            
+            <!-- Branching -->
+            <div class="branch-container">
+                <!-- A-Lead Branch -->
+                <div class="branch">
+                    <div class="branch-label yes">✓ JA → A-Lead</div>
+                    
+                    <div class="shared-actions">
+                        <div class="shared-actions-title">🔄 Automatische Aktionen</div>
+                        <div class="integration-row">
+                            <div class="integration">📊 Google Ads Conversion</div>
+                            <div class="integration">💼 LinkedIn Conversion</div>
+                        </div>
+                        <div class="integration-row">
+                            <div class="integration a-int">🎯 Pipedrive: Inbound-A</div>
+                            <div class="integration">📧 Mailchimp Liste</div>
+                        </div>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
+                    <div class="step a-lead">
+                        <div class="step-number">Step 5A</div>
+                        <div class="step-title">📅 Calendly</div>
+                        <div class="step-desc">Direkte Terminbuchung</div>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
+                    <div class="step a-lead" style="max-width: 280px;">
+                        <div class="step-title">✅ Termin gebucht</div>
+                        <div class="step-desc">Kalendereinladung versendet<br>Pipedrive Deal-Stage aktualisiert</div>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
+                    <div class="end-state a-lead">🎯 Sales-Gespräch</div>
+                </div>
+                
+                <!-- B-Lead Branch -->
+                <div class="branch">
+                    <div class="branch-label no">✗ NEIN → B-Lead</div>
+                    
+                    <div class="step b-lead">
+                        <div class="step-number">Step 4B</div>
+                        <div class="step-title">⚙️ Prozess-Fragen</div>
+                        <div class="step-desc">Details zum Anwendungsfall</div>
+                    </div>
+                    
+                    <div class="arrow b-lead"></div>
+                    
+                    <div class="shared-actions">
+                        <div class="shared-actions-title">🔄 Automatische Aktionen</div>
+                        <div class="integration-row">
+                            <div class="integration">📊 Google Ads Conversion</div>
+                            <div class="integration">💼 LinkedIn Conversion</div>
+                        </div>
+                        <div class="integration-row">
+                            <div class="integration b-int">📋 Pipedrive: Inbound-B</div>
+                            <div class="integration">📧 Mailchimp Liste</div>
+                        </div>
+                    </div>
+                    
+                    <div class="arrow b-lead"></div>
+                    
+                    <div class="step b-lead">
+                        <div class="step-number">Step 5B</div>
+                        <div class="step-title">📧 Bestätigungs-E-Mail</div>
+                        <div class="step-desc">Link zum Online-Formular</div>
+                    </div>
+                    
+                    <div class="arrow b-lead"></div>
+                    
+                    <div class="step b-lead">
+                        <div class="step-number">Step 6B</div>
+                        <div class="step-title">📋 Online-Formular</div>
+                        <div class="step-desc">Erweiterte Informationen<br>→ Daten in Pipedrive verlinkt</div>
+                    </div>
+                    
+                    <div class="arrow b-lead"></div>
+                    
+                    <div class="sub-decision">
+                        <div class="sub-decision-title">👤 Manuelle Prüfung</div>
+                        <div class="step-desc">Entscheidung durch Sales-Team</div>
+                    </div>
+                    
+                    <div class="sub-branch-container">
+                        <div class="sub-branch">
+                            <div class="sub-branch-label accept">✓ Akzeptiert</div>
+                            <div class="mini-step a-lead">
+                                📅 Calendly-Link<br>
+                                <small style="color: var(--text-secondary);">→ Gleiche Stage wie A-Leads</small>
+                            </div>
+                            <div style="height: 8px;"></div>
+                            <div class="mini-step a-lead">
+                                ✅ Termin gebucht<br>
+                                <small style="color: var(--text-secondary);">→ Pipedrive aktualisiert</small>
+                            </div>
+                            <div style="height: 8px;"></div>
+                            <div class="end-state a-lead" style="font-size: 0.85rem; padding: 12px 20px;">🎯 Sales-Gespräch</div>
+                        </div>
+                        
+                        <div class="sub-branch">
+                            <div class="sub-branch-label reject">✗ Abgelehnt</div>
+                            <div class="mini-step nurture">
+                                📧 Absage-E-Mail<br>
+                                <small style="color: var(--text-secondary);">Hinweis auf Technologie-Stand</small>
+                            </div>
+                            <div style="height: 8px;"></div>
+                            <div class="end-state nurture" style="font-size: 0.85rem; padding: 12px 20px;">🌱 Nurture</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
