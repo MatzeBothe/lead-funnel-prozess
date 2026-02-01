@@ -93,6 +93,7 @@
         .legend-dot.b-lead { background: var(--accent-b); box-shadow: 0 0 10px var(--accent-b-glow); }
         .legend-dot.shared { background: var(--accent-shared); box-shadow: 0 0 10px var(--accent-shared-glow); }
         .legend-dot.nurture { background: var(--accent-nurture); }
+        .legend-dot.partial { background: #7f8c8d; }
 
         .diagram {
             display: flex;
@@ -489,6 +490,225 @@
             margin-bottom: 20px;
         }
 
+        /* Multi-Step Form Container */
+        .multistep-form-container {
+            position: relative;
+            border: 2px dashed var(--accent-shared);
+            border-radius: 20px;
+            padding: 30px 40px 20px 40px;
+            margin-bottom: 0;
+            background: rgba(108, 92, 231, 0.05);
+        }
+
+        .multistep-form-label {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-primary);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-shared);
+            border: 1px solid var(--accent-shared);
+            white-space: nowrap;
+        }
+
+        .multistep-form-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* Multi-Step Form Extension für B-Lead */
+        .multistep-form-extension {
+            position: relative;
+            border: 2px dashed var(--accent-shared);
+            border-radius: 16px;
+            padding: 24px 20px 16px 20px;
+            margin-bottom: 0;
+            background: rgba(108, 92, 231, 0.05);
+        }
+
+        .multistep-form-extension-label {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-primary);
+            padding: 3px 12px;
+            border-radius: 16px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent-shared);
+            border: 1px solid var(--accent-shared);
+            white-space: nowrap;
+        }
+
+        /* Partial Submit Abbruch-Pfad */
+        .partial-submit-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 12px;
+            margin-bottom: 8px;
+            width: 100%;
+            max-width: 750px;
+        }
+
+        .partial-submit-path {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .partial-submit-arrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #7f8c8d;
+            font-size: 0.75rem;
+        }
+
+        .partial-submit-arrow-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #7f8c8d);
+            position: relative;
+        }
+
+        .partial-submit-arrow-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 7px solid #7f8c8d;
+        }
+
+        .pipedrive-stage.partial {
+            border-color: #7f8c8d;
+            color: #7f8c8d;
+            background: rgba(127, 140, 141, 0.08);
+            font-size: 0.75rem;
+            padding: 8px 14px;
+        }
+
+        /* Task-Automatisierung Box */
+        .task-automation {
+            background: rgba(0, 212, 170, 0.08);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.8rem;
+            max-width: 280px;
+            text-align: center;
+        }
+
+        .task-automation-title {
+            font-weight: 600;
+            color: var(--accent-a);
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            justify-content: center;
+            margin: 4px 0;
+            font-size: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        /* Clay Integration */
+        .integration.clay {
+            background: rgba(155, 89, 182, 0.15);
+            color: #9b59b6;
+            border-color: rgba(155, 89, 182, 0.3);
+        }
+
+        /* Reminder Email */
+        .reminder-step {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-a);
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            text-align: center;
+            max-width: 280px;
+        }
+
+        /* LinkedIn Conditional Note */
+        .integration-note {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        .integration.conditional {
+            border-style: dashed;
+            opacity: 0.85;
+        }
+
+        /* Automatische Erinnerung / Follow-Up Box */
+        .automation-reminder {
+            background: rgba(255, 123, 84, 0.08);
+            border: 1px dashed rgba(255, 123, 84, 0.4);
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 0.8rem;
+            text-align: center;
+            max-width: 280px;
+            color: var(--accent-b);
+        }
+
+        .automation-reminder-title {
+            font-weight: 600;
+            color: var(--accent-b);
+            margin-bottom: 6px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .automation-reminder-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Mini Automation Box für Sub-Branches */
+        .mini-automation {
+            background: rgba(255, 123, 84, 0.08);
+            border: 1px dashed rgba(255, 123, 84, 0.4);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 0.7rem;
+            text-align: center;
+            max-width: 160px;
+            color: var(--accent-b);
+        }
+
+        .mini-task {
+            background: rgba(0, 212, 170, 0.08);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 0.7rem;
+            text-align: center;
+            max-width: 160px;
+            color: var(--accent-a);
+        }
+
         @media (max-width: 768px) {
             .branch-container {
                 flex-direction: column;
@@ -531,6 +751,10 @@
                     <div class="legend-dot nurture"></div>
                     <span>Nurture</span>
                 </div>
+                <div class="legend-item">
+                    <div class="legend-dot partial"></div>
+                    <span>Partial Submit</span>
+                </div>
             </div>
         </header>
 
@@ -538,26 +762,45 @@
             <!-- Phase 1: Qualifizierung -->
             <div class="phase-label">Phase 1: Qualifizierung</div>
             
-            <div class="step shared">
-                <div class="step-number">Step 1</div>
-                <div class="step-title">📝 Datenformular</div>
-                <div class="step-desc">Name, E-Mail, Unternehmen</div>
+            <!-- Multi-Step Form Container -->
+            <div class="multistep-form-container">
+                <div class="multistep-form-label">📋 Multi-Step Formular</div>
+                <div class="multistep-form-content">
+                    <div class="step shared">
+                        <div class="step-number">Step 1/3</div>
+                        <div class="step-title">📝 Datenformular</div>
+                        <div class="step-desc">Name, E-Mail, Unternehmen</div>
+                    </div>
+                    
+                    <div class="arrow"></div>
+                    
+                    <div class="step shared">
+                        <div class="step-number">Step 2/3</div>
+                        <div class="step-title">👥 Anzahl Mitarbeiter</div>
+                        <div class="step-desc">Unternehmensgröße erfassen</div>
+                    </div>
+                    
+                    <div class="arrow"></div>
+                    
+                    <div class="step shared">
+                        <div class="step-number">Step 3/3</div>
+                        <div class="step-title">🏭 Industrie</div>
+                        <div class="step-desc">Branche auswählen</div>
+                    </div>
+                </div>
             </div>
             
-            <div class="arrow"></div>
-            
-            <div class="step shared">
-                <div class="step-number">Step 2</div>
-                <div class="step-title">👥 Anzahl Mitarbeiter</div>
-                <div class="step-desc">Unternehmensgröße erfassen</div>
-            </div>
-            
-            <div class="arrow"></div>
-            
-            <div class="step shared">
-                <div class="step-number">Step 3</div>
-                <div class="step-title">🏭 Industrie</div>
-                <div class="step-desc">Branche auswählen</div>
+            <!-- Partial Submit Abbruch-Pfad -->
+            <div class="partial-submit-container">
+                <div class="partial-submit-path">
+                    <div class="partial-submit-arrow">
+                        <span>Bei Abbruch</span>
+                        <div class="partial-submit-arrow-line"></div>
+                    </div>
+                    <div class="pipedrive-stage partial">
+                        <span>📍 Pipedrive: Partial Submit</span>
+                    </div>
+                </div>
             </div>
             
             <div class="arrow"></div>
@@ -565,8 +808,8 @@
             <div class="decision">
                 <div class="decision-title">Logik-Prüfung</div>
                 <div class="decision-logic">
-                    (MA &gt; 500) ODER<br>
-                    (MA &gt; 100 &amp; Logistik/Produktion)
+                    (MA &gt; 1000) ODER<br>
+                    (MA &gt; 500 &amp; Industrie = Logistik/Fertigung)
                 </div>
             </div>
             
@@ -579,7 +822,10 @@
                     <div class="shared-actions">
                         <div class="shared-actions-title">🔄 Automatische Aktionen</div>
                         <div class="integration-row">
-                            <div class="integration">📊 Google Ads Conversion</div>
+                            <div class="integration" style="flex-direction: column; gap: 2px;">
+                                <span>📊 Google Ads Conversion</span>
+                                <small style="opacity: 0.8; font-size: 0.7rem; font-weight: 600;">Value: 100</small>
+                            </div>
                             <div class="integration">💼 LinkedIn Conversion</div>
                         </div>
                         <div class="integration-row">
@@ -589,6 +835,12 @@
                             <div class="integration a-int" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
                                 <span>🎯 Pipedrive: Deal anlegen</span>
                                 <small style="opacity: 0.8; font-size: 0.7rem;">inkl. Qualifizierungsfragen-Antworten</small>
+                            </div>
+                        </div>
+                        <div class="integration-row" style="margin-top: 8px;">
+                            <div class="integration clay" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
+                                <span>🔮 Clay: Lead-Daten anreichern</span>
+                                <small style="opacity: 0.8; font-size: 0.7rem;">(Attribute: tbd)</small>
                             </div>
                         </div>
                     </div>
@@ -601,10 +853,39 @@
                     
                     <div class="arrow a-lead"></div>
                     
+                    <!-- Task-Automatisierung: Follow-Up Terminbuchung -->
+                    <div class="task-automation">
+                        <div class="task-automation-title">📋 Task-Automatisierung</div>
+                        <div class="task-item">
+                            <span>📝 Task: "Follow-Up Terminbuchung"</span>
+                        </div>
+                        <div class="task-item">
+                            <small style="color: var(--text-secondary);">Due Date: nächster Tag</small>
+                        </div>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
                     <div class="step a-lead">
                         <div class="step-number">Step 4A</div>
                         <div class="step-title">📅 Calendly</div>
                         <div class="step-desc">Direkte Terminbuchung</div>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
+                    <!-- Task-Update bei Buchung -->
+                    <div class="task-automation">
+                        <div class="task-automation-title">✅ Bei Terminbuchung</div>
+                        <div class="task-item">
+                            <span>☑️ Task "Follow-Up" abgehakt</span>
+                        </div>
+                        <div class="task-item">
+                            <span>📝 Neuer Task: "Call"</span>
+                        </div>
+                        <div class="task-item">
+                            <small style="color: var(--text-secondary);">Terminiert auf gewählten Tag</small>
+                        </div>
                     </div>
                     
                     <div class="arrow a-lead"></div>
@@ -622,6 +903,14 @@
                     
                     <div class="arrow a-lead"></div>
                     
+                    <!-- Erinnerungs-E-Mail an Lead -->
+                    <div class="reminder-step">
+                        <div class="step-title" style="font-size: 0.95rem;">📧 Erinnerungs-E-Mail an Lead</div>
+                        <div class="step-desc">Automatisch 1 Tag vor Termin<br><small>(via Calendly)</small></div>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
                     <div class="end-state a-lead">🎯 Sales-Gespräch</div>
                 </div>
                 
@@ -629,10 +918,14 @@
                 <div class="branch">
                     <div class="branch-label no">✗ NEIN → B-Lead</div>
                     
-                    <div class="step b-lead">
-                        <div class="step-number">Step 4B</div>
-                        <div class="step-title">⚙️ Prozess-Fragen</div>
-                        <div class="step-desc">Details zum Anwendungsfall</div>
+                    <!-- Prozess-Fragen als Teil des Multi-Step Forms -->
+                    <div class="multistep-form-extension">
+                        <div class="multistep-form-extension-label">📋 Multi-Step Formular (Fortsetzung)</div>
+                        <div class="step b-lead" style="border: 2px dashed var(--accent-b);">
+                            <div class="step-number">Step 4/4</div>
+                            <div class="step-title">⚙️ Prozess-Fragen</div>
+                            <div class="step-desc">Details zum Anwendungsfall</div>
+                        </div>
                     </div>
                     
                     <div class="arrow b-lead"></div>
@@ -640,8 +933,14 @@
                     <div class="shared-actions">
                         <div class="shared-actions-title">🔄 Automatische Aktionen</div>
                         <div class="integration-row">
-                            <div class="integration">📊 Google Ads Conversion</div>
-                            <div class="integration">💼 LinkedIn Conversion</div>
+                            <div class="integration" style="flex-direction: column; gap: 2px;">
+                                <span>📊 Google Ads Conversion</span>
+                                <small style="opacity: 0.8; font-size: 0.7rem; font-weight: 600;">Value: 10</small>
+                            </div>
+                            <div class="integration conditional" style="flex-direction: column; gap: 2px;">
+                                <span>💼 LinkedIn Conversion *</span>
+                                <small class="integration-note">* Nur wenn Sekundär-Conversion<br>oder geringerer Value erlaubt</small>
+                            </div>
                         </div>
                         <div class="integration-row">
                             <div class="integration">📧 Mailchimp Liste</div>
@@ -650,6 +949,12 @@
                             <div class="integration b-int" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
                                 <span>📋 Pipedrive: Deal anlegen</span>
                                 <small style="opacity: 0.8; font-size: 0.7rem;">inkl. Qualifizierungsfragen-Antworten</small>
+                            </div>
+                        </div>
+                        <div class="integration-row" style="margin-top: 8px;">
+                            <div class="integration clay" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
+                                <span>🔮 Clay: Lead-Daten anreichern</span>
+                                <small style="opacity: 0.8; font-size: 0.7rem;">(Attribute: tbd)</small>
                             </div>
                         </div>
                     </div>
@@ -666,6 +971,16 @@
                         <div class="step-number">Step 5B</div>
                         <div class="step-title">📧 Bestätigungs-E-Mail</div>
                         <div class="step-desc">Link zum Online-Formular</div>
+                    </div>
+                    
+                    <div class="arrow b-lead"></div>
+                    
+                    <!-- Automatische Erinnerung nach 1 Woche -->
+                    <div class="automation-reminder">
+                        <div class="automation-reminder-title">⏰ Automatische Erinnerung</div>
+                        <div class="automation-reminder-desc">
+                            Falls Online-Formular nach 1 Woche<br>nicht ausgefüllt → Erinnerungs-E-Mail
+                        </div>
                     </div>
                     
                     <div class="arrow b-lead"></div>
@@ -696,7 +1011,19 @@
                                 📅 Calendly-Link versendet
                             </div>
                             <div style="height: 6px;"></div>
+                            <!-- Follow-Up E-Mail Automatisierung -->
+                            <div class="mini-automation">
+                                ⏰ Follow-Up E-Mail<br>
+                                <small style="color: var(--text-secondary);">nach 1 Woche ohne Buchung</small>
+                            </div>
+                            <div style="height: 6px;"></div>
                             <div class="pipedrive-stage-mini a-lead">📍 Termin gebucht</div>
+                            <div style="height: 6px;"></div>
+                            <!-- Task "Call" bei Buchung -->
+                            <div class="mini-task">
+                                📝 Task: "Call"<br>
+                                <small style="color: var(--text-secondary);">Am gewählten Termin-Tag</small>
+                            </div>
                             <div style="height: 6px;"></div>
                             <div class="mini-step a-lead">
                                 ✅ Bei Buchung:<br>
