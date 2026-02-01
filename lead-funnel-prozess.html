@@ -767,7 +767,7 @@
                 <div class="multistep-form-label">📋 Multi-Step Formular</div>
                 <div class="multistep-form-content">
                     <div class="step shared">
-                        <div class="step-number">Step 1/3</div>
+                        <div class="step-number">Step 1</div>
                         <div class="step-title">📝 Datenformular</div>
                         <div class="step-desc">Name, E-Mail, Unternehmen</div>
                     </div>
@@ -775,7 +775,7 @@
                     <div class="arrow"></div>
                     
                     <div class="step shared">
-                        <div class="step-number">Step 2/3</div>
+                        <div class="step-number">Step 2</div>
                         <div class="step-title">👥 Anzahl Mitarbeiter</div>
                         <div class="step-desc">Unternehmensgröße erfassen</div>
                     </div>
@@ -783,7 +783,7 @@
                     <div class="arrow"></div>
                     
                     <div class="step shared">
-                        <div class="step-number">Step 3/3</div>
+                        <div class="step-number">Step 3</div>
                         <div class="step-title">🏭 Industrie</div>
                         <div class="step-desc">Branche auswählen</div>
                     </div>
@@ -867,7 +867,7 @@
                     <div class="arrow a-lead"></div>
                     
                     <div class="step a-lead">
-                        <div class="step-number">Step 4A</div>
+                        <div class="step-number">Step A-4</div>
                         <div class="step-title">📅 Calendly</div>
                         <div class="step-desc">Direkte Terminbuchung</div>
                     </div>
@@ -897,6 +897,7 @@
                     <div class="arrow a-lead"></div>
                     
                     <div class="step a-lead" style="max-width: 280px;">
+                        <div class="step-number">Step A-5</div>
                         <div class="step-title">✅ Termin bestätigt</div>
                         <div class="step-desc">Kalendereinladung versendet<br>Pipedrive Deal-Stage automatisch aktualisiert</div>
                     </div>
@@ -922,9 +923,15 @@
                     <div class="multistep-form-extension">
                         <div class="multistep-form-extension-label">📋 Multi-Step Formular (Fortsetzung)</div>
                         <div class="step b-lead" style="border: 2px dashed var(--accent-b);">
-                            <div class="step-number">Step 4/4</div>
+                            <div class="step-number">Step B-4</div>
                             <div class="step-title">⚙️ Prozess-Fragen</div>
                             <div class="step-desc">Details zum Anwendungsfall</div>
+                        </div>
+                        <div class="arrow b-lead" style="height: 24px;"></div>
+                        <div class="step b-lead" style="border: 2px dashed var(--accent-b);">
+                            <div class="step-number">Step B-5</div>
+                            <div class="step-title">🛒 Kaufzeitpunkt</div>
+                            <div class="step-desc">"Wann wollen Sie einen Roboter kaufen?"<br><small style="color: var(--text-secondary);">Optionen: Sofort | 1 Jahr | 2-5 Jahre</small></div>
                         </div>
                     </div>
                     
@@ -968,7 +975,7 @@
                     <div class="arrow b-lead"></div>
                     
                     <div class="step b-lead">
-                        <div class="step-number">Step 5B</div>
+                        <div class="step-number">Step B-6</div>
                         <div class="step-title">📧 Bestätigungs-E-Mail</div>
                         <div class="step-desc">Link zum Online-Formular</div>
                     </div>
@@ -986,7 +993,7 @@
                     <div class="arrow b-lead"></div>
                     
                     <div class="step b-lead">
-                        <div class="step-number">Step 6B</div>
+                        <div class="step-number">Step B-7</div>
                         <div class="step-title">📋 Online-Formular ausgefüllt</div>
                         <div class="step-desc">Erweiterte Informationen erfasst<br>→ Formulardaten in Pipedrive gespeichert<br>→ Deal aktualisiert</div>
                     </div>
@@ -1000,7 +1007,7 @@
                     <div class="arrow b-lead"></div>
                     
                     <div class="sub-decision">
-                        <div class="sub-decision-title">👤 Manuelle Prüfung</div>
+                        <div class="sub-decision-title">Step B-8: 👤 Manuelle Prüfung</div>
                         <div class="step-desc">Entscheidung durch Sales-Team</div>
                     </div>
                     
@@ -1008,6 +1015,7 @@
                         <div class="sub-branch">
                             <div class="sub-branch-label accept">✓ Akzeptiert</div>
                             <div class="mini-step a-lead">
+                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-9a</strong><br>
                                 📅 Calendly-Link versendet
                             </div>
                             <div style="height: 6px;"></div>
@@ -1026,8 +1034,9 @@
                             </div>
                             <div style="height: 6px;"></div>
                             <div class="mini-step a-lead">
-                                ✅ Bei Buchung:<br>
-                                <small style="color: var(--text-secondary);">Pipedrive automatisch aktualisiert</small>
+                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-10a</strong><br>
+                                ✅ Termin bestätigt<br>
+                                <small style="color: var(--text-secondary);">Pipedrive aktualisiert</small>
                             </div>
                             <div style="height: 6px;"></div>
                             <div class="end-state a-lead" style="font-size: 0.85rem; padding: 12px 20px;">🎯 Sales-Gespräch</div>
@@ -1036,6 +1045,7 @@
                         <div class="sub-branch">
                             <div class="sub-branch-label reject">✗ Abgelehnt</div>
                             <div class="mini-step nurture">
+                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-9b</strong><br>
                                 📧 Absage-E-Mail<br>
                                 <small style="color: var(--text-secondary);">Hinweis auf aktuellen<br>Stand der Technologie</small>
                             </div>
