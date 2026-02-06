@@ -629,8 +629,8 @@
             color: var(--text-primary);
         }
 
-        /* Clay Integration */
-        .integration.clay {
+        /* Data Enrichment Integration */
+        .integration.enrichment {
             background: rgba(155, 89, 182, 0.15);
             color: #9b59b6;
             border-color: rgba(155, 89, 182, 0.3);
@@ -797,8 +797,14 @@
                         <span>Bei Abbruch</span>
                         <div class="partial-submit-arrow-line"></div>
                     </div>
-                    <div class="pipedrive-stage partial">
-                        <span>📍 Pipedrive: Partial Submit</span>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <div class="pipedrive-stage partial">
+                            <span>📍 Pipe: RoboService Sales Nurture → Stage: Inbound - No Contact</span>
+                        </div>
+                        <div class="mini-task" style="color: #7f8c8d; border-color: rgba(127, 140, 141, 0.3); background: rgba(127, 140, 141, 0.08);">
+                            📝 Task: "Check Partial Submit"<br>
+                            <small style="color: var(--text-secondary);">Due Date: nächster Tag</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -829,18 +835,18 @@
                             <div class="integration">💼 LinkedIn Conversion</div>
                         </div>
                         <div class="integration-row">
-                            <div class="integration">📧 Mailchimp Liste</div>
+                            <div class="integration">📧 Pipedrive Campaigns</div>
                         </div>
                         <div class="integration-row" style="margin-top: 12px;">
                             <div class="integration a-int" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
                                 <span>🎯 Pipedrive: Deal anlegen</span>
-                                <small style="opacity: 0.8; font-size: 0.7rem;">inkl. Qualifizierungsfragen-Antworten</small>
+                                <small style="opacity: 0.8; font-size: 0.7rem;">Pipe: RoboService Sales<br>inkl. Qualifizierungsfragen-Antworten</small>
                             </div>
                         </div>
                         <div class="integration-row" style="margin-top: 8px;">
-                            <div class="integration clay" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
-                                <span>🔮 Clay: Lead-Daten anreichern</span>
-                                <small style="opacity: 0.8; font-size: 0.7rem;">(Attribute: tbd)</small>
+                            <div class="integration enrichment" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
+                                <span>🔍 Data Enrichment</span>
+                                <small style="opacity: 0.8; font-size: 0.7rem;">• Website<br>• Company Description (250 char)<br>• Legal Company Name (aus Impressum)</small>
                             </div>
                         </div>
                     </div>
@@ -848,7 +854,7 @@
                     <div class="arrow a-lead"></div>
                     
                     <div class="pipedrive-stage a-lead">
-                        <span>📍 Stage: Inbound-A</span>
+                        <span>📍 Pipe: RoboService Sales → Stage: Inbound / Contact</span>
                     </div>
                     
                     <div class="arrow a-lead"></div>
@@ -862,6 +868,17 @@
                         <div class="task-item">
                             <small style="color: var(--text-secondary);">Due Date: nächster Tag</small>
                         </div>
+                        <div class="task-item">
+                            <small style="color: var(--text-secondary);">Offener Task = Follow-Up nötig</small>
+                        </div>
+                    </div>
+                    
+                    <div class="arrow a-lead"></div>
+                    
+                    <!-- E-Mail Reminder 10 Min nach Absenden -->
+                    <div class="reminder-step">
+                        <div class="step-title" style="font-size: 0.95rem;">📧 E-Mail Reminder</div>
+                        <div class="step-desc">Automatisch 10 Min. nach Formular-Absenden<br>Enthält Link zur Terminbuchung (Calendly)</div>
                     </div>
                     
                     <div class="arrow a-lead"></div>
@@ -890,16 +907,10 @@
                     
                     <div class="arrow a-lead"></div>
                     
-                    <div class="pipedrive-stage a-lead">
-                        <span>📍 Stage: Termin gebucht</span>
-                    </div>
-                    
-                    <div class="arrow a-lead"></div>
-                    
                     <div class="step a-lead" style="max-width: 280px;">
                         <div class="step-number">Step A-5</div>
                         <div class="step-title">✅ Termin bestätigt</div>
-                        <div class="step-desc">Kalendereinladung versendet<br>Pipedrive Deal-Stage automatisch aktualisiert</div>
+                        <div class="step-desc">Kalendereinladung versendet</div>
                     </div>
                     
                     <div class="arrow a-lead"></div>
@@ -950,18 +961,18 @@
                             </div>
                         </div>
                         <div class="integration-row">
-                            <div class="integration">📧 Mailchimp Liste</div>
+                            <div class="integration">📧 Pipedrive Campaigns</div>
                         </div>
                         <div class="integration-row" style="margin-top: 12px;">
                             <div class="integration b-int" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
                                 <span>📋 Pipedrive: Deal anlegen</span>
-                                <small style="opacity: 0.8; font-size: 0.7rem;">inkl. Qualifizierungsfragen-Antworten</small>
+                                <small style="opacity: 0.8; font-size: 0.7rem;">Pipe: RoboService Sales Nurture<br>inkl. Qualifizierungsfragen-Antworten</small>
                             </div>
                         </div>
                         <div class="integration-row" style="margin-top: 8px;">
-                            <div class="integration clay" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
-                                <span>🔮 Clay: Lead-Daten anreichern</span>
-                                <small style="opacity: 0.8; font-size: 0.7rem;">(Attribute: tbd)</small>
+                            <div class="integration enrichment" style="flex-direction: column; gap: 2px; padding: 8px 14px;">
+                                <span>🔍 Data Enrichment</span>
+                                <small style="opacity: 0.8; font-size: 0.7rem;">• Website<br>• Company Description (250 char)<br>• Legal Company Name (aus Impressum)</small>
                             </div>
                         </div>
                     </div>
@@ -969,45 +980,26 @@
                     <div class="arrow b-lead"></div>
                     
                     <div class="pipedrive-stage b-lead">
-                        <span>📍 Stage: Inbound-B</span>
+                        <span>📍 Pipe: RoboService Sales Nurture → Stage: Inbound - No Contact</span>
                     </div>
                     
                     <div class="arrow b-lead"></div>
                     
-                    <div class="step b-lead">
-                        <div class="step-number">Step B-6</div>
-                        <div class="step-title">📧 Bestätigungs-E-Mail</div>
-                        <div class="step-desc">Link zum Online-Formular</div>
-                    </div>
-                    
-                    <div class="arrow b-lead"></div>
-                    
-                    <!-- Automatische Erinnerung nach 1 Woche -->
-                    <div class="automation-reminder">
-                        <div class="automation-reminder-title">⏰ Automatische Erinnerung</div>
-                        <div class="automation-reminder-desc">
-                            Falls Online-Formular nach 1 Woche<br>nicht ausgefüllt → Erinnerungs-E-Mail
+                    <!-- Task für manuelle Prüfung -->
+                    <div class="task-automation" style="background: rgba(255, 123, 84, 0.08); border-color: rgba(255, 123, 84, 0.3);">
+                        <div class="task-automation-title" style="color: var(--accent-b);">📋 Task-Automatisierung</div>
+                        <div class="task-item">
+                            <span>📝 Task: "B-Lead prüfen"</span>
                         </div>
-                    </div>
-                    
-                    <div class="arrow b-lead"></div>
-                    
-                    <div class="step b-lead">
-                        <div class="step-number">Step B-7</div>
-                        <div class="step-title">📋 Online-Formular ausgefüllt</div>
-                        <div class="step-desc">Erweiterte Informationen erfasst<br>→ Formulardaten in Pipedrive gespeichert<br>→ Deal aktualisiert</div>
-                    </div>
-                    
-                    <div class="arrow b-lead"></div>
-                    
-                    <div class="pipedrive-stage b-lead">
-                        <span>📍 Stage: Warten auf Prüfung</span>
+                        <div class="task-item">
+                            <small style="color: var(--text-secondary);">Zugewiesen an Sales-Team</small>
+                        </div>
                     </div>
                     
                     <div class="arrow b-lead"></div>
                     
                     <div class="sub-decision">
-                        <div class="sub-decision-title">Step B-8: 👤 Manuelle Prüfung</div>
+                        <div class="sub-decision-title">Step B-6: 👤 Manuelle Prüfung</div>
                         <div class="step-desc">Entscheidung durch Sales-Team</div>
                     </div>
                     
@@ -1015,7 +1007,7 @@
                         <div class="sub-branch">
                             <div class="sub-branch-label accept">✓ Akzeptiert</div>
                             <div class="mini-step a-lead">
-                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-9a</strong><br>
+                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-7a</strong><br>
                                 📅 Calendly-Link versendet
                             </div>
                             <div style="height: 6px;"></div>
@@ -1034,7 +1026,7 @@
                             </div>
                             <div style="height: 6px;"></div>
                             <div class="mini-step a-lead">
-                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-10a</strong><br>
+                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-8a</strong><br>
                                 ✅ Termin bestätigt<br>
                                 <small style="color: var(--text-secondary);">Pipedrive aktualisiert</small>
                             </div>
@@ -1045,7 +1037,7 @@
                         <div class="sub-branch">
                             <div class="sub-branch-label reject">✗ Abgelehnt</div>
                             <div class="mini-step nurture">
-                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-9b</strong><br>
+                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-7b</strong><br>
                                 📧 Absage-E-Mail<br>
                                 <small style="color: var(--text-secondary);">Hinweis auf aktuellen<br>Stand der Technologie</small>
                             </div>
