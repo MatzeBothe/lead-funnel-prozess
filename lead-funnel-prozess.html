@@ -769,7 +769,7 @@
                     <div class="step shared">
                         <div class="step-number">Step 1</div>
                         <div class="step-title">📝 Datenformular</div>
-                        <div class="step-desc">Name, E-Mail, Unternehmen</div>
+                        <div class="step-desc">Name, Firma, E-Mail, Telefonnummer</div>
                     </div>
                     
                     <div class="arrow"></div>
@@ -814,8 +814,12 @@
             <div class="decision">
                 <div class="decision-title">Logik-Prüfung</div>
                 <div class="decision-logic">
+                    <strong>→ B-Lead wenn:</strong><br>
+                    Industrie = Sondermaschinenbau<br><br>
+                    <strong>→ A-Lead wenn:</strong><br>
                     (MA &gt; 1000) ODER<br>
-                    (MA &gt; 500 &amp; Industrie = Logistik/Fertigung)
+                    (MA &gt; 500 &amp; Industrie = Logistik/Fertigung)<br><br>
+                    <strong>→ Sonst: B-Lead</strong>
                 </div>
             </div>
             
@@ -875,18 +879,18 @@
                     
                     <div class="arrow a-lead"></div>
                     
-                    <!-- E-Mail Reminder 10 Min nach Absenden -->
-                    <div class="reminder-step">
-                        <div class="step-title" style="font-size: 0.95rem;">📧 E-Mail Reminder</div>
-                        <div class="step-desc">Automatisch 10 Min. nach Formular-Absenden<br>Enthält Link zur Terminbuchung (Calendly)</div>
+                    <div class="step a-lead">
+                        <div class="step-number">Step A-4</div>
+                        <div class="step-title">📅 Calendly / iClosed o.ä.</div>
+                        <div class="step-desc">Direkte Terminbuchung</div>
                     </div>
                     
                     <div class="arrow a-lead"></div>
                     
-                    <div class="step a-lead">
-                        <div class="step-number">Step A-4</div>
-                        <div class="step-title">📅 Calendly</div>
-                        <div class="step-desc">Direkte Terminbuchung</div>
+                    <!-- E-Mail Reminder 10 Min nach Absenden -->
+                    <div class="reminder-step">
+                        <div class="step-title" style="font-size: 0.95rem;">📧 E-Mail Reminder</div>
+                        <div class="step-desc">Automatisch 10 Min. nach Formular-Absenden<br>Enthält Link zur Terminbuchung (Calendly)</div>
                     </div>
                     
                     <div class="arrow a-lead"></div>
@@ -933,16 +937,36 @@
                     <!-- Prozess-Fragen als Teil des Multi-Step Forms -->
                     <div class="multistep-form-extension">
                         <div class="multistep-form-extension-label">📋 Multi-Step Formular (Fortsetzung)</div>
+                        
+                        <!-- Frage 1: Anwendungsfall -->
                         <div class="step b-lead" style="border: 2px dashed var(--accent-b);">
                             <div class="step-number">Step B-4</div>
-                            <div class="step-title">⚙️ Prozess-Fragen</div>
-                            <div class="step-desc">Details zum Anwendungsfall</div>
+                            <div class="step-title">⚙️ Anwendungsfall</div>
+                            <div class="step-desc">"Welchen Anwendungsfall möchten Sie automatisieren?"<br><small style="color: var(--text-secondary);">(Mehrfachauswahl)</small><br><small style="color: var(--text-secondary);">• Maschinenbeschickung und -entnahme<br>• Kommissionierung<br>• Intra-Logistik<br>• Materialhandling<br>• Andere (Freitexteingabe)</small></div>
                         </div>
                         <div class="arrow b-lead" style="height: 24px;"></div>
+                        
+                        <!-- Frage 2: Komplexität -->
                         <div class="step b-lead" style="border: 2px dashed var(--accent-b);">
                             <div class="step-number">Step B-5</div>
+                            <div class="step-title">📊 Komplexität</div>
+                            <div class="step-desc">"Wie komplex würden Sie die Anwendungsfälle einordnen?"<br><small style="color: var(--text-secondary);">• Einfach - kann von ungelernten Arbeiter durchgeführt werden<br>• Mittel - braucht wenige Stunden Einweisung<br>• Schwer - kann ein Mensch nur mit Hilfsmitteln durchführen (z.B. Lupe)</small></div>
+                        </div>
+                        <div class="arrow b-lead" style="height: 24px;"></div>
+                        
+                        <!-- Frage 3: Kaufzeitpunkt -->
+                        <div class="step b-lead" style="border: 2px dashed var(--accent-b);">
+                            <div class="step-number">Step B-6</div>
                             <div class="step-title">🛒 Kaufzeitpunkt</div>
-                            <div class="step-desc">"Wann wollen Sie einen Roboter kaufen?"<br><small style="color: var(--text-secondary);">Optionen: Sofort | 1 Jahr | 2-5 Jahre</small></div>
+                            <div class="step-desc">"Wann planen Sie einen humanoiden Roboter zu kaufen?"<br><small style="color: var(--text-secondary);">• Innerhalb der nächsten 3 Monate<br>• In 4-6 Monaten<br>• In 7-12 Monaten<br>• Nach 12 Monaten</small></div>
+                        </div>
+                        <div class="arrow b-lead" style="height: 24px;"></div>
+                        
+                        <!-- Frage 4: Budget -->
+                        <div class="step b-lead" style="border: 2px dashed var(--accent-b);">
+                            <div class="step-number">Step B-7</div>
+                            <div class="step-title">💰 Budget</div>
+                            <div class="step-desc">"Welches Budget können Sie pro Roboter einsetzen?"<br><small style="color: var(--text-secondary);">• Unter 100 TEUR<br>• 101-150 TEUR<br>• 151-200 TEUR<br>• Über 200 TEUR</small></div>
                         </div>
                     </div>
                     
@@ -999,7 +1023,7 @@
                     <div class="arrow b-lead"></div>
                     
                     <div class="sub-decision">
-                        <div class="sub-decision-title">Step B-6: 👤 Manuelle Prüfung</div>
+                        <div class="sub-decision-title">Step B-8: 👤 Manuelle Prüfung</div>
                         <div class="step-desc">Entscheidung durch Sales-Team</div>
                     </div>
                     
@@ -1007,7 +1031,7 @@
                         <div class="sub-branch">
                             <div class="sub-branch-label accept">✓ Akzeptiert</div>
                             <div class="mini-step a-lead">
-                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-7a</strong><br>
+<strong style="font-size: 0.65rem; color: var(--text-secondary);">B-9a</strong><br>
                                 📅 Calendly-Link versendet
                             </div>
                             <div style="height: 6px;"></div>
@@ -1026,7 +1050,7 @@
                             </div>
                             <div style="height: 6px;"></div>
                             <div class="mini-step a-lead">
-                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-8a</strong><br>
+<strong style="font-size: 0.65rem; color: var(--text-secondary);">B-10a</strong><br>
                                 ✅ Termin bestätigt<br>
                                 <small style="color: var(--text-secondary);">Pipedrive aktualisiert</small>
                             </div>
@@ -1037,7 +1061,7 @@
                         <div class="sub-branch">
                             <div class="sub-branch-label reject">✗ Abgelehnt</div>
                             <div class="mini-step nurture">
-                                <strong style="font-size: 0.65rem; color: var(--text-secondary);">B-7b</strong><br>
+<strong style="font-size: 0.65rem; color: var(--text-secondary);">B-9b</strong><br>
                                 📧 Absage-E-Mail<br>
                                 <small style="color: var(--text-secondary);">Hinweis auf aktuellen<br>Stand der Technologie</small>
                             </div>
